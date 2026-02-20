@@ -1,26 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-washi: #f4f1eb; /* 和紙白 (背景) */
+  --color-sumi: #1a1a1a;  /* 墨色 (主要文字/標題) */
+  --color-stone: #e2dfdb; /* 石灰 (邊界/分隔線) */
+  --color-matcha-dark: #3a4738; /* 抹茶暗綠 (VIP/點綴) */
+  --color-wood: #4a3b32; /* 沉穩木色 (點綴) */
+
+  --font-sans: 'Inter', var(--font-sans);
+  --font-serif: 'Noto Serif JP', var(--font-serif);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-washi text-sumi font-sans antialiased;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
