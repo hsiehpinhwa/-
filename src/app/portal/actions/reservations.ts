@@ -15,7 +15,7 @@ export async function createReservation(formData: FormData) {
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
-        return { error: "Authentication required." };
+        throw new Error("Authentication required.");
     }
 
     const { data: profile } = await supabase
@@ -25,7 +25,7 @@ export async function createReservation(formData: FormData) {
         .single();
 
     if (!profile) {
-        return { error: "Collector profile not found." };
+        throw new Error("Collector profile not found.");
     }
 
     const { error } = await supabase
@@ -37,7 +37,7 @@ export async function createReservation(formData: FormData) {
         });
 
     if (error) {
-        return { error: "預約失敗，請聯絡畫廊。" };
+        throw new Error("預約失敗，請聯絡畫廊。");
     }
 
     revalidatePath("/portal/dashboard");

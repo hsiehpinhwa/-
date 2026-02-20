@@ -26,6 +26,7 @@ export default async function Home() {
         .order("created_at", { ascending: true }); // Mock seed data is ordered by creation implicitly
 
     // 格式化為前端元件需要的型別
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const finalArtworks = (artworksData || []).map((art: any) => ({
         id: art.id,
         accessionNumber: art.accession_number,
@@ -81,6 +82,7 @@ export default async function Home() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-24">
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {finalArtworks.map((artwork: any, idx: number) => (
                         <ArtworkCard
                             key={artwork.id}

@@ -9,14 +9,14 @@ export async function upgradeToVip(formData: FormData) {
 
     // Mock invite code verification: "NAG_VIP_2026"
     if (inviteCode !== "NAG_VIP_2026") {
-        return { error: "邀請碼無效 Invite code is invalid." };
+        throw new Error("邀請碼無效 Invite code is invalid.");
     }
 
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
 
     if (!user) {
-        return { error: "Authentication required." };
+        throw new Error("Authentication required.");
     }
 
     // Update Collector level to VIP
@@ -26,7 +26,7 @@ export async function upgradeToVip(formData: FormData) {
         .eq("auth_user_id", user.id);
 
     if (error) {
-        return { error: "升級失敗，請聯絡畫廊服務人員。" };
+        throw new Error("升級失敗，請聯絡畫廊服務人員。");
     }
 
     revalidatePath("/portal/dashboard");

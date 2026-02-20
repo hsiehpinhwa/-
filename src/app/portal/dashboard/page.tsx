@@ -2,7 +2,6 @@ import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { FadeIn } from "@/components/ui/FadeIn";
 import Link from "next/link";
-import { ArtworkCard } from "@/components/gallery/ArtworkCard";
 
 export default async function DashboardPage() {
     const supabase = await createClient();
@@ -61,6 +60,7 @@ export default async function DashboardPage() {
 
                         {reservations && reservations.length > 0 ? (
                             <ul className="space-y-4">
+                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                 {reservations.map((res: any) => (
                                     <li key={res.id} className="flex justify-between items-center py-4 border-b border-stone/10 last:border-0 hover:bg-black/5 px-2 transition-colors">
                                         <div>
@@ -70,8 +70,8 @@ export default async function DashboardPage() {
                                             </p>
                                         </div>
                                         <span className={`text-xs px-2 py-1 uppercase tracking-widest ${res.status === 'PENDING' ? 'bg-orange-100 text-orange-800' :
-                                                res.status === 'CONFIRMED' ? 'bg-green-100 text-green-800' :
-                                                    'bg-stone-200 text-stone-600'
+                                            res.status === 'CONFIRMED' ? 'bg-green-100 text-green-800' :
+                                                'bg-stone-200 text-stone-600'
                                             }`}>
                                             {res.status}
                                         </span>
