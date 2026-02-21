@@ -1,0 +1,5 @@
+accession_number,object_title,artist_maker,creation_date,medium_materials,dim_h,dim_w,dim_d,status,price,is_vip_only
+ART-2025-001,夜櫻 (Yozakura),Takahashi Hiroaki,1930,Woodblock Print,39,26,,AVAILABLE,120000,FALSE
+ART-2025-002,無相 (Musho),Yao Chien,2024,Oil on Canvas,120,80,5,AVAILABLE,850000,TRUE
+ART-2025-003,春之雪 (Spring Snow),Kawakami Sumio,1950,Woodblock Print,45,30,,SOLD,,,
+ART-2025-004,靜水 (Still Water),Nakamura Kenji,2023,Mixed Media,60,60,10,RESERVED,450000,FALSE
