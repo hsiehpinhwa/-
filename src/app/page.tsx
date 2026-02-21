@@ -1,6 +1,5 @@
 import { ArtworkCard } from "@/components/gallery/ArtworkCard";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Artwork } from "@/types/domain";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 

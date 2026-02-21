@@ -11,12 +11,6 @@ export default async function NewReservationPage() {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) redirect("/login");
 
-    const { data: profile } = await supabase
-        .from("collectors")
-        .select("level")
-        .eq("auth_user_id", user.id)
-        .single();
-
     // Fetch available artworks
     const { data: artworks } = await supabase
         .from("artworks")

@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server";
 import { upgradeToVip } from "../actions/vip";
 import { FadeIn } from "@/components/ui/FadeIn";
 import Link from "next/link";
